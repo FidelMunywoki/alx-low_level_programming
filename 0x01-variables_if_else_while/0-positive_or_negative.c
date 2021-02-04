@@ -1,4 +1,6 @@
-#tdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include <stdio.h>
 /**
  * main - code execution
  * Description: determine if n is +ve,-ve,=

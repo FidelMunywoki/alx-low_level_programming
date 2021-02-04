@@ -1,32 +1,26 @@
 #include <stdlib.h>
 #include <time.h>
 #include <stdio.h>
-/* added stdio.h */
-
-/* betty style doc for function main goes there */
+/**
+ * main - code execution
+ * Description: prints whether iast digit on n is positive or negative
+ * Return: 0
+ */
 int main(void)
-/*main function */
 {
-int n; /* n to do modulas */
-int lastDigit;
+int n;
+int last_digit;
+
 srand(time(0));
 n = rand() - RAND_MAX / 2;
-/* your code goes there */
-/*Operation to extract the last digit*/
 
-lastDigit = n % 10;
-/*output script*/
-if (lastDigit > 5)
-{
-printf("Last digit of %d is %d and is greater than 5\n", n, lastDigit)
-}
-else if (lastDigit == 0)
-{
-printf("Last Digit of %d is %d and is 0\n", n, lastDigit);
-}
+last_digit = n % 10;
+printf("Last digit of %i is %i and is ", n, last_digit);
+if (last_digit > 5)
+printf("greater than 5\n");
+else if (last_digit == 0)
+printf("0\n");
 else
-{
-printf("Last Digit of %d is %d and is less than 6 and not 0\n", n, lastDigit);
-}
+printf("less than 6 and not 0\n");
 return (0);
 }

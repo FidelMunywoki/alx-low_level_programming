@@ -1,5 +1,8 @@
-cription: prints all alphabet except q and e
-* Return: 0
+#include <stdio.h>
+/**
+ * main - code execution
+ * Description: prints all alphabet except q and e
+ * Return: 0
  */
 int main(void)
 {

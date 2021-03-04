@@ -1,34 +1,52 @@
 #include "holberton.h"
-#include <stdlib.h>
+#include <stdio.h>
 
 /**
- *_strdup - Returns a pointer to a new string which is
- *          a duplicate of the string str
- *@str: String to be copied
- *Return: If str == NULL, insufficient memory- NULL
- *        Otherwise, a pointer to the duplicated string
+ * string_nconcat - concatenates two strings.
+ * @s1: string 1
+ * @s2: string 2
+ * @n: integer
+ * Description: for n>= len of s2 use entire s2
+ * Return: if function fails, return NULL
  */
 
-char *_strdup(char *str)
+char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-char *dup;
-int i, len = 0;
+char *p;
+int strlen1, i, c;
 
-if (str == NULL)
+if (s1 == NULL)
+s1 = "";
+if (s2 == NULL)
+s2 = "";
+
+strlen1 = (unsigned int)_strlen(s1);
+p = malloc((strlen1 + n + 1) * sizeof(char));
+if (p == NULL)
 return (NULL);
+for (i = 0, c = 0; i < (strlen1 + n); i++)
+{
+if (i < strlen1)
+p[i] = s1[i];
+else
+p[i] = s2[c++];
+}
+p[i] = '\0';
 
-for (i = 0; str[i]; i++)
-len++;
+return (p);
+}
 
-dup = malloc(sizeof(char) * (len + 1));
+/**
+ * _strlen - find length of string
+ * @s: string
+ * Return: length of string
+ */
 
-if (dup == NULL)
-return (NULL);
+int _strlen(char *s)
+{
+int i;
 
-for (i = 0; str[i]; i++)
-dup[i] = str[i];
-
-dup[len] = '\0';
-
-return (dup);
+for (i = 0; s[i] != '\0'; i++)
+;
+return (i);
 }

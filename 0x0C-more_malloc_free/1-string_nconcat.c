@@ -1,34 +1,4 @@
-Skip to content
-Search or jump to…
-
-Pull requests
-Issues
-Marketplace
-Explore
- 
-@FidelMunywoki 
-MercyMueniMwangi
-/
-alx-low_level_programming
-1
-00
-Code
-Issues
-Pull requests
-Actions
-Projects
-Wiki
-Security
-Insights
-alx-low_level_programming/0x0C-more_malloc_free/1-string_nconcat.c
-@MercyMueniMwangi
-MercyMueniMwangi C - More malloc, free
-Latest commit d9bf192 on Dec 23, 2020
- History
- 1 contributor
-43 lines (32 sloc)  799 Bytes
-  
-#include "holberton.h"
+ #include "holberton.h"
 #include <stdlib.h>
 
 /**

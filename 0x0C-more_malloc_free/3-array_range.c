@@ -1,48 +1,26 @@
 #include "holberton.h"
-#include <stdlib.h>
 
 /**
- * alloc_grid - Returns a pointer to a 2-dimensional array of
- *               integers with each element initialized to 0.
- * @width: The width of the 2-dimensional array.
- * @height: The height of the 2-dimensional array.
- *
- * Return: If width <= 0, height <= 0, or the function fails - NULL.
- *         Otherwise - a pointer to the 2-dimensional array of integers.
+ * array_range - creates an array of integers
+ * @min: minimum val
+ * @max: max value
+ * Description: array contain all values from min-max, ordered
+ * Return: pointer to the newly created array
  */
 
-int **alloc_grid(int width, int height)
+int *array_range(int min, int max)
 {
-int **twoD;
-int hgt_index, wid_index;
+int *a, i;
 
-if (width <= 0 || height <= 0)
+if (min > max)
 return (NULL);
 
-twoD = malloc(sizeof(int *) * height);
-
-if (twoD == NULL)
+a = malloc((max - min + 1) * sizeof(*a));
+if (a == NULL)
 return (NULL);
 
-for (hgt_index = 0; hgt_index < height; hgt_index++)
-{
-twoD[hgt_index] = malloc(sizeof(int) * width);
+for (i == 0; min <= max; i++, min++)
+a[i] = min;
 
-if (twoD[hgt_index] == NULL)
-{
-for (; hgt_index >= 0; hgt_index--)
-free(twoD[hgt_index]);
-
-free(twoD);
-return (NULL);
-}
-}
-
-for (hgt_index = 0; hgt_index < height; hgt_index++)
-{
-for (wid_index = 0; wid_index < width; wid_index++)
-twoD[hgt_index][wid_index] = 0;
-}
-
-return (twoD);
+return (a);
 }

@@ -2,41 +2,33 @@
 #include <stdlib.h>
 
 /**
- *str_concat - Concatenates two strings.
- *@s1: The string to be concatenated upon.
- *@s2: The string to be concatenated to s1.
+ *_calloc - Allocates memory for an array of a certain number
+ *          of elements each of an input byte size
+ *@nmemb: Number of elements in an array
+ *@size: The byte size of each array element
  *
- *Return: If concatenation fails - NULL.
- *        Otherwise - a pointer the newly-allocated space
- *                    in memory containing the concatenated strings.
- *Description: return pointer should point to a newly allocated space
- *             in memory which contains the contents of s1, followed by
- *             the contents of s2, and null terminated
+ *Return: If nmemb = 0, size = 0, or the function fails - NULL
+ *        Otherwise - a pointer to the allocated memory
  */
-char *str_concat(char *s1, char *s2)
+
+void *_calloc(unsigned int nmemb, unsigned int size)
 {
-char *con_cat;
-int i, cat_i = 0, len = 0;
+void *mem;
+char *filler;
+unsigned int index;
 
-if (s1 == NULL)
-s1 = "";
-
-if (s2 == NULL)
-s2 = "";
-
-for (i = 0; s1[i] || s2[i]; i++)
-len++;
-
-con_cat = malloc(sizeof(char) * len);
-
-if (con_cat == NULL)
+if (nmemb == 0 || size == 0)
 return (NULL);
 
-for (i = 0; s1[i]; i++)
-con_cat[cat_i++] = s1[i];
+mem = malloc(size * nmemb);
 
-for (i = 0; s2[i]; i++)
-con_cat[cat_i++] = s2[i];
+if (mem == NULL)
+return (NULL);
 
-return (con_cat);
+filler = mem;
+
+for (index = 0; index < (size * nmemb); index++)
+filler[index] = '\0';
+
+return (mem);
 }
